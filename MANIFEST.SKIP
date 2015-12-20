@@ -1,0 +1,10 @@
+^target/
+^inc/
+^\.git/
+^\.gitignore$
+^Cargo\.lock$
+^Cargo\.toml$
+.*~$
+^MYMETA\.(yml|json)$
+^Makefile(\.old)?$
+^MANIFEST.bak$
