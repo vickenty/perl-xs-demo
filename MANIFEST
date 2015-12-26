@@ -1,8 +1,0 @@
-lib/XSDemo.pm
-Makefile.PL
-MANIFEST			This list of files
-MANIFEST.SKIP
-META.yml
-README.md
-src/lib.rs
-t/simple.t
