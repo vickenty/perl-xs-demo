@@ -2,7 +2,7 @@
 extern crate perl_xs;
 
 use std::ffi::CString;
-use perl_xs::{ SV, IV, AV, Scalar, Array };
+use perl_xs::{ SV, IV, AV };
 
 XS! {
     package XSDemo {
@@ -13,7 +13,7 @@ XS! {
         sub add_sub (ctx) {
             let a: IV = ctx.st_fetch(0);
             let v: SV = ctx.st_fetch(1);
-            let b = v.to_iv();
+            let b = v.iv();
             xs_return!(ctx, a + b, a - b);
         }
 
@@ -21,7 +21,7 @@ XS! {
             let nn = &CString::new("XSDemo::array").unwrap();
 
             let av: Option<AV> = ctx.get_av(nn);
-            let iv = av.and_then(|av| av.fetch(0)).unwrap_or(-1);
+            let iv = av.and_then(|av| av.fetch(0)).unwrap_or(-1 as IV);
 
             xs_return!(ctx, iv);
         }
