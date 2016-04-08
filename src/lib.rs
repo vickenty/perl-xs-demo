@@ -25,6 +25,12 @@ XS! {
 
             xs_return!(ctx, iv);
         }
+
+        sub call_dies (ctx) {
+            use perl_xs::{ G_DISCARD, G_VOID };
+            ctx.call_pv(cstr!("XSDemo::dies"), G_DISCARD | G_VOID);
+            xs_return!(ctx, 42 as IV);
+        }
     }
 
     loader boot_XSDemo;
